@@ -614,7 +614,7 @@ async function loadHeader(header) {
   header.append(headerBlock);
   decorateBlock(headerBlock);
   headerBlock.dataset.blockName = 'header';
-  headerBlock.dataset.basePath = '/site-a/nav';
+  headerBlock.dataset.basePath = '/site-b/nav';
   return loadBlock(headerBlock);
 }
 
@@ -628,7 +628,7 @@ async function loadFooter(footer) {
   footer.append(footerBlock);
   decorateBlock(footerBlock);
   footerBlock.dataset.blockName = 'header';
-  footerBlock.dataset.basePath = '/site-a/nav'; 
+  footerBlock.dataset.basePath = '/site-b/nav'; 
   return loadBlock(footerBlock);
 }
 
