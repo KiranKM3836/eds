@@ -614,7 +614,7 @@ async function loadHeader(header) {
   header.append(headerBlock);
   decorateBlock(headerBlock);
   headerBlock.dataset.blockName = 'header';
-  headerBlock.dataset.basePath = '/site-b/nav';
+  headerBlock.dataset.basePath = '/site-b/footer';
   return loadBlock(headerBlock);
 }
 
