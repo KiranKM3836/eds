@@ -1,5 +1,5 @@
 mountpoints:
-  site-a/:
+  /site-a/:
     url: https://content.da.live/KiranKM3836/eds/site-a/
     type: markup
 
