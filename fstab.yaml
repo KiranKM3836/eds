@@ -1,7 +1,4 @@
 mountpoints:
-  /:
-    url: https://content.da.live/KiranKM3836/eds/
-    type: markup
   site-a/:
     url: https://content.da.live/KiranKM3836/eds/site-a/
     type: markup
