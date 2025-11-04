@@ -2,6 +2,9 @@ mountpoints:
   /site-a/:
     url: https://content.da.live/KiranKM3836/eds/site-a/
     type: markup
+ /site-b/:
+    url: https://content.da.live/KiranKM3836/eds/site-a/
+    type: markup
 
 folders:
   /products/: /products/default
