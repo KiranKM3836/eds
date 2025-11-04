@@ -56,7 +56,7 @@ function sampleRUM(checkpoint, data) {
 
         window.addEventListener('error', ({ error }) => {
           const errData = dataFromErrorObj(error);
-          sampleRUM('error', errData);
+          sampleRUM('error ', errData);
         });
 
         window.addEventListener('unhandledrejection', ({ reason }) => {
