@@ -628,7 +628,7 @@ async function loadFooter(footer) {
   footer.append(footerBlock);
   decorateBlock(footerBlock);
   footerBlock.dataset.blockName = 'footer';
-  footerBlock.dataset.basePath = '/site-a/footer'; 
+  // footerBlock.dataset.basePath = '/site-a/footer'; 
   return loadBlock(footerBlock);
 }
 

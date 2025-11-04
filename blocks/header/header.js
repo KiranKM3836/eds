@@ -159,7 +159,7 @@ function setupSubmenu(navSection) {
 export default async function decorate(block) {
   // load nav as fragment
   const navMeta = getMetadata('nav');
-  const basePath = block.dataset.basePath || '';
+  const basePath =  navMeta? new URL(navMeta, window.location).pathname : window.location.pathname + 'nav';
   const navPath = navMeta ? new URL(navMeta, window.location).pathname : '/nav';
   const fragment = await loadFragment(basePath);
 
