@@ -2,7 +2,7 @@ import { fetchCategories } from '../../scripts/services/commerce-category.js';
 import { rootLink } from '../../scripts/commerce.js';
 
 /**
- * Builds a category link URL from category data
+ * Builds a category link URL from category data 
  * @param {Object} category - Category object with url_path
  * @returns {string} Formatted category URL
  */
