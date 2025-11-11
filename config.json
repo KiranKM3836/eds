@@ -1,19 +1,19 @@
 {
   "public": {
     "default": {
-      "commerce-core-endpoint": "https://www.aemshop.net/graphql",
-      "commerce-endpoint": "https://www.aemshop.net/cs-graphql",
+      "commerce-core-endpoint": "https://mps.klizer.co/graphql",
+      "commerce-endpoint": "https://mps.klizer.co/graphql",
       "commerce-assets-enabled": false,
       "headers": {
         "all": {
           "Store": "default"
         },
         "cs": {
-          "Magento-Store-Code": "main_website_store",
-          "Magento-Store-View-Code": "default",
-          "Magento-Website-Code": "base",
-          "x-api-key": "4dfa19c9fe6f4cccade55cc5b3da94f7",
-          "Magento-Environment-Id": "f38a0de0-764b-41fa-bd2c-5bc2f3c7b39a"
+          "Magento-Store-Code": "mps_website_store",
+          "Magento-Store-View-Code": " mps_default",
+          "Magento-Website-Code": "mpsb2c_base",
+          "x-api-key": "jbhlbgjgm424zhftsmzir7dd8tdef8yp",
+          "Magento-Environment-Id": "b37425fe-bed4-4f4c-a143-9e28f5b59ace"
         }
       },
       "analytics": {

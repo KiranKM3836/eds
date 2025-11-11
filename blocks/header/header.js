@@ -8,6 +8,7 @@ import { fetchPlaceholders, getProductLink, rootLink } from '../../scripts/comme
 
 import renderAuthCombine from './renderAuthCombine.js';
 import { renderAuthDropdown } from './renderAuthDropdown.js';
+import { loadCategoryMenu } from './category-menu.js';
 
 // media query match that indicates mobile/tablet width
 const isDesktop = window.matchMedia('(min-width: 900px)');
@@ -157,11 +158,17 @@ function setupSubmenu(navSection) {
  * @param {Element} block The header block element
  */
 export default async function decorate(block) {
-  // load nav as fragment
+  // load nav as fragment and category menu in parallel for better performance
   const navMeta = getMetadata('nav');
   const basePath =  navMeta? new URL(navMeta, window.location).pathname : window.location.pathname + 'nav';
   const navPath = navMeta ? new URL(navMeta, window.location).pathname : '/nav';
-  const fragment = await loadFragment(navPath);
+  const [fragment, categoryMenu] = await Promise.all([
+    loadFragment(navPath),
+    loadCategoryMenu().catch((error) => {
+      console.error('Failed to load category menu:', error);
+      return null;
+    }),
+  ]);
 
   // decorate nav DOM
   block.textContent = '';
@@ -184,6 +191,28 @@ export default async function decorate(block) {
 
   const navSections = nav.querySelector('.nav-sections');
   if (navSections) {
+    // Prepend category menu as first item if loaded successfully
+    if (categoryMenu) {
+      const existingWrapper = navSections.querySelector('.default-content-wrapper');
+      if (existingWrapper) {
+        const categoryWrapper = categoryMenu.querySelector('.default-content-wrapper');
+        if (categoryWrapper) {
+          const categoryUl = categoryWrapper.querySelector('ul');
+          const existingUl = existingWrapper.querySelector('ul');
+          if (categoryUl && existingUl) {
+            // Prepend category menu items to existing nav
+            while (categoryUl.firstChild) {
+              existingUl.insertBefore(categoryUl.firstChild, existingUl.firstChild);
+            }
+          }
+        }
+      } else {
+        // If no existing wrapper, prepend the entire category menu
+        navSections.insertBefore(categoryMenu, navSections.firstChild);
+      }
+    }
+
+    // Setup event handlers for all nav sections (including category menu items)
     navSections
       .querySelectorAll(':scope .default-content-wrapper > ul > li')
       .forEach((navSection) => {
